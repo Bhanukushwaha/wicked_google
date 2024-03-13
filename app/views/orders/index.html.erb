@@ -1,0 +1,5 @@
+<h1>Orders</h1>
+
+<%= area_chart @orders.group_by_day() {|order| order.created_at }.map { |date, orders| [date, orders.size]}%>
+<%= link_to 'Create PDF', generate_report_path(@order,format: :pdf),class:"btn btn-primary", style: "color:green;" %>
+<%= link_to "New orders", new_order_path %>

@@ -1,0 +1,15 @@
+<h1>Orders</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @orders.each do |order| %>
+	  <tr>
+	  	<td><%= order.title %></td>
+	  </tr>
+	  <% end %>
+	</tbody>
+</table>
