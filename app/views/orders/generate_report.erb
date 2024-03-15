@@ -1,15 +1,19 @@
-<h1>Orders</h1>
-<table>
-	<thead>
-		<tr>
-			<th>Title</th>
-		</tr>
-	</thead>
-	<tbody>
-	  <% @orders.each do |order| %>
-	  <tr>
-	  	<td><%= order.title %></td>
-	  </tr>
-	  <% end %>
-	</tbody>
-</table>
+<div class="container">
+	<h1>Orders</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+			</tr>
+		</thead>
+		<tbody>
+		  <% @orders.each do |order| %>
+		  <tr>
+		  	<td><%= order.title %></td>
+		  </tr>
+		  <% end %>
+		</tbody>
+	</table>
+
+	<%= area_chart @orders.group_by_day() {|order| order.created_at }.map { |date, orders| [date, orders.size]}%>
+</div>

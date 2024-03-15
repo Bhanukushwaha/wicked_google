@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   end
   def generate_report
     @orders = Order.all
-    @chart = @orders.group(:category).count.map { |category, count| [category, count] }
+    # @chart = @orders.group(:category).count.map { |category, count| [category, count] }
     respond_to do |format|
     format.html
       format.pdf do
